@@ -1,7 +1,7 @@
 const NewSnippet = require("../Models/Model");
 
 const addSnippet = (req, res) => {
-  console.log(".........object.............");
+  // console.log(".........object.............");
   const body = req.body;
   const newSnippet = new NewSnippet(body);
 
@@ -26,7 +26,14 @@ const addSnippet = (req, res) => {
     });
 };
 
-const getSnippets = (req, res) => {
+const getSnippets =  (req, res) => {
+   NewSnippet.find({}, (err, snippets) => {
+    if (err || !snippets.length) {
+      return res.status(500).json({ success: false, error: err });
+    }
+
+    return res.status(200).json({ success: true, snippets: snippets });
+  });
 };
 
 module.exports = { addSnippet, getSnippets };
