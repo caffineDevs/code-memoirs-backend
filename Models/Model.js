@@ -13,10 +13,10 @@ const NewSnippet = new Schema({
     type: String,
   },
   notes: {
-    type: [String],
+    type: String,
   },
   images: {
-    type: [String],
+    type: String,
   },
 });
 
