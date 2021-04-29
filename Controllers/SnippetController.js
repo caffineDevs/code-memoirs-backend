@@ -1,7 +1,6 @@
 const NewSnippet = require("../Models/Model");
 
 const addSnippet = (req, res) => {
-  // console.log(".........object.............");
   const body = req.body;
   const newSnippet = new NewSnippet(body);
 
