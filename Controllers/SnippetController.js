@@ -25,13 +25,15 @@ const addSnippet = (req, res) => {
     });
 };
 
-const getSnippets =  (req, res) => {
-   NewSnippet.find({}, (err, snippets) => {
+const getSnippets = (req, res) => {
+  NewSnippet.find({}, (err, snippets) => {
     if (err || !snippets.length) {
-      return res.status(200).json({ success: false, error: 'No snippets' });
+      return res.status(200).json({ success: false, error: "No snippets" });
     }
-
-    return res.status(200).json({ success: true, snippets: snippets });
+    const tags = snippets.map((snippet) => snippet.tags).flat();
+    return res
+      .status(200)
+      .json({ success: true, snippets: snippets, tags: tags });
   });
 };
 
