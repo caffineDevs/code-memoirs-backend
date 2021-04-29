@@ -21,6 +21,9 @@ const NewSnippet = new Schema({
   snippet: {
     type: String,
   },
+  tags: {
+    type: [String],
+  },
 });
 
 module.exports = mongoose.model("code_snippets", NewSnippet);
