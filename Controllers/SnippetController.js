@@ -53,4 +53,4 @@ const deleteSnippet = async (req, res) => {
   }).catch((err) => console.log(err));
 };
 
-module.exports = { addSnippet, getSnippets };
+module.exports = { addSnippet, getSnippets, deleteSnippet };
