@@ -37,8 +37,8 @@ const getSnippets = (req, res) => {
   });
 };
 
-const deleteSnippet = (req, res) => {
-  NewSnippet.findOneAndDelete({ _id: req.params.id }, (err, snippet) => {
+const deleteSnippet = async (req, res) => {
+  await NewSnippet.findOneAndDelete({ _id: req.params.id }, (err, snippet) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
     }
