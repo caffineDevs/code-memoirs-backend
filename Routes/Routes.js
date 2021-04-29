@@ -7,4 +7,6 @@ router.post("/addSnip", snippetCtrl.addSnippet);
 
 router.get("/get", snippetCtrl.getSnippets);
 
+router.get("/delSnip", snippetCtrl.deleteSnippet);
+
 module.exports = router;

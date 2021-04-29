@@ -37,4 +37,20 @@ const getSnippets = (req, res) => {
   });
 };
 
+const deleteSnippet = async (req, res) => {
+  await NewSnippet.findOneAndDelete({ _id: req.params.id }, (err, snippet) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+
+    if (!snippet) {
+      return res
+        .status(404)
+        .json({ success: false, error: `snippet not found` });
+    }
+
+    return res.status(200).json({ success: true });
+  }).catch((err) => console.log(err));
+};
+
 module.exports = { addSnippet, getSnippets };
